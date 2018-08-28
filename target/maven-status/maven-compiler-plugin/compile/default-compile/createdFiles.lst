@@ -1,1 +1,8 @@
-cambio\pfm\mi\MIRunner\InitMI.class
+cambio\pfm\mi\MIRunner\MIRunnerProperties.class
+cambio\pfm\mi\MIRunner\service\dao\DBConnection.class
+cambio\pfm\mi\MIRunner\servlets\InitMI.class
+cambio\pfm\mi\MIRunner\service\dao\AuditMessageServiceDao.class
+cambio\pfm\mi\MIRunner\servlets\shutdownMI.class
+cambio\pfm\mi\MIRunner\MIRunner.class
+cambio\pfm\mi\MIRunner\service\dao\AuditDBConnectionImpl.class
+cambio\pfm\mi\MIRunner\service\AuditRecordService.class

@@ -7,12 +7,19 @@
 
     <servlet>
         <servlet-name>InitMI</servlet-name>
-        <servlet-class>cambio.pfm.mi.MIRunner.InitMI</servlet-class>
+        <servlet-class>cambio.pfm.mi.MIRunner.servlets.InitMI</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>shutdownMI</servlet-name>
+        <servlet-class>cambio.pfm.mi.MIRunner.servlets.shutdownMI</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>InitMI</servlet-name>
         <url-pattern>/init</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>shutdownMI</servlet-name>
+        <url-pattern>/shutdown</url-pattern>
+    </servlet-mapping>
 </web-app>
