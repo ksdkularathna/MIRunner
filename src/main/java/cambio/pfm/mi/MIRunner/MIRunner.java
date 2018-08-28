@@ -32,6 +32,7 @@ public class MIRunner extends TimerTask implements MIRunnerProperties
   private MIRunner()
   {
     executor = Executors.newSingleThreadScheduledExecutor();
+    auditRecordService = AuditRecordService.getService();
   }
 
   /**

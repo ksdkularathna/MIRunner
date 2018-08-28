@@ -8,5 +8,5 @@ public interface MIRunnerProperties
 {
   long INITIAL_DELAY = 1000L;
 
-  long DELAY_BETWEEN_EXECUTIONS = 10000L;
+  long DELAY_BETWEEN_EXECUTIONS = 20000L;
 }

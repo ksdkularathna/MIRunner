@@ -2,7 +2,7 @@ package cambio.pfm.mi.MIRunner.servlets;
 
 import cambio.pfm.mi.MIRunner.MIRunner;
 import cambio.pfm.mi.MIRunner.MIRunnerProperties;
-import cambio.pfm.mi.MIRunner.service.dao.DBConnection;
+import cambio.pfm.service.mi.MIStartService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,22 +26,22 @@ import java.io.IOException;
   {
     super.init();
     runner = MIRunner.getRunner();
+    MIStartService.getMIService().startMIProcessors();
     runner.runMI();
   }
 
   @Override protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
   {
-    DBConnection connection = new DBConnection();
-    try
-    {
-      java.sql.Connection connection1 = connection.getConnection("audit");
-      System.out.println("End" +connection1.getSchema());
-    }
-    catch (Exception e)
-    {
-      e.printStackTrace();
-    }
-
+    //    DBConnection connection = new DBConnection();
+    //    try
+    //    {
+    //      java.sql.Connection connection1 = connection.getConnection("audit");
+    //      System.out.println("End" +connection1.getSchema());
+    //    }
+    //    catch (Exception e)
+    //    {
+    //      e.printStackTrace();
+    //    }
     if (runner != null && !runner.isShutDown())
     {
       req.setAttribute("result", "MI Started");
@@ -56,6 +56,7 @@ import java.io.IOException;
 
   @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
   {
+    MIStartService.getMIService().startMIProcessors();
     if (runner != null && !runner.isShutDown())
     {
       req.setAttribute("result", "MI Started");

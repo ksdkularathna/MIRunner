@@ -20,7 +20,7 @@ public class AuditRecordService
 
   private AuditMessageServiceDao dao;
 
-  private int lastAuditId = 0;
+  private int lastAuditIdProcessed = 0;
 
   private AuditRecordService()
   {
@@ -41,7 +41,6 @@ public class AuditRecordService
     try
     {
       int lastAuditIdAvailable = dao.getMaximumAuditIdInAuditTable();
-      int lastAuditIdProcessed = dao.getMaximumAuditIdInMartTables();
 
       if (lastAuditIdAvailable > lastAuditIdProcessed)
       {
@@ -49,6 +48,7 @@ public class AuditRecordService
         for (AuditData auditData : newAuditMessages)
         {
           AuditService.getInstance().auditRecord(auditData);
+          lastAuditIdProcessed = auditData.getAuditId();
         }
       }
     }
