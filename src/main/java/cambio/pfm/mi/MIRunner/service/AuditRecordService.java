@@ -5,6 +5,7 @@ import cambio.pfm.mi.core.data.AuditData;
 import cambio.pfm.service.audit.AuditService;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,12 +45,14 @@ public class AuditRecordService
 
       if (lastAuditIdAvailable > lastAuditIdProcessed)
       {
+        System.out.println("Audit extract started on " + new Date());
         List<AuditData> newAuditMessages = dao.getNewAuditData(lastAuditIdProcessed);
         for (AuditData auditData : newAuditMessages)
         {
           AuditService.getInstance().auditRecord(auditData);
           lastAuditIdProcessed = auditData.getAuditId();
         }
+        System.out.println("Audit extract ended on " + new Date());
       }
     }
     catch (SQLException e)

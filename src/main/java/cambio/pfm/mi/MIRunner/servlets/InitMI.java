@@ -56,7 +56,6 @@ import java.io.IOException;
 
   @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
   {
-    MIStartService.getMIService().startMIProcessors();
     if (runner != null && !runner.isShutDown())
     {
       req.setAttribute("result", "MI Started");

@@ -40,7 +40,6 @@ public class MIRunner extends TimerTask implements MIRunnerProperties
    */
   public void run()
   {
-    System.out.println("Audit extract performed on " + new Date());
     try
     {
       auditRecordService.processAuditRecords();
@@ -48,7 +47,7 @@ public class MIRunner extends TimerTask implements MIRunnerProperties
     catch (Exception e)
     {
       e.printStackTrace();
-      System.out.println("Audit extract failed at " + new Date());
+      System.out.println("Audit extract failed on " + new Date());
     }
   }
 
@@ -78,7 +77,7 @@ public class MIRunner extends TimerTask implements MIRunnerProperties
   }
 
   /**
-   * returns whether executor is shutdown or not
+   * returns true if executor is terminated
    *
    * @return
    */
