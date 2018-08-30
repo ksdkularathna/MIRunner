@@ -2,6 +2,7 @@ package cambio.pfm.mi.MIRunner.service.dao;
 
 import uk.cambio.pfm.configurationservice.dbConnections.AuditDBConnection;
 import uk.cambio.pfm.configurationservice.dbConnections.DBConnectionsParameters;
+import uk.cambio.pfm.configurationservice.util.ResourceStringService;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,8 +40,9 @@ public class AuditDBConnectionImpl implements AuditDBConnection, DBConnectionsPa
       {
         Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
         connection = DriverManager
-            .getConnection("jdbc:derby://localhost:19100/audit;create=false;bootPassword=opEn32wArd65cYh", "openward",
-                "ow963*OW");
+            .getConnection(ResourceStringService.getInstance().getResourceString("openward.db.url"),
+                ResourceStringService.getInstance().getResourceString("db.username"),
+                ResourceStringService.getInstance().getResourceString("db.password"));
       }
       catch (Exception except)
       {
