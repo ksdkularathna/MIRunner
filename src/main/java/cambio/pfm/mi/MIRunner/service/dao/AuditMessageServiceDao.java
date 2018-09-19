@@ -1,6 +1,9 @@
 package cambio.pfm.mi.MIRunner.service.dao;
 
 import cambio.pfm.mi.core.data.AuditData;
+import org.apache.log4j.Logger;
+import cambio.pfm.mi.configurationservicemodule.data.enums.DatabaseNames;
+import cambio.pfm.mi.configurationservicemodule.dbConnections.DBConnections;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,6 +18,8 @@ import java.util.List;
 public class AuditMessageServiceDao
 {
   private static AuditMessageServiceDao dao;
+
+  private final static Logger logger = Logger.getLogger(AuditMessageServiceDao.class);
 
   private AuditMessageServiceDao()
   {
@@ -35,14 +40,15 @@ public class AuditMessageServiceDao
    * @param auditId
    * @return
    */
-  public List<AuditData> getNewAuditData(int auditId) throws SQLException
+  public List<AuditData> getNewAuditData(int auditId) throws Exception
   {
     List<AuditData> auditDataList = new ArrayList<AuditData>();
 
-    Connection connection = AuditDBConnectionImpl.getInstance().getConnection();
+    Connection connection = DBConnections.Factory.getInstance().getConnection(DatabaseNames.OPENWARD);
     if (connection == null)
     {
-      throw new SQLException("database connection is not available");
+      logger.error("database connection is not available for " + DatabaseNames.OPENWARD);
+      throw new SQLException("database connection is not available for " + DatabaseNames.OPENWARD);
     }
 
     Statement statement = null;
@@ -78,11 +84,12 @@ public class AuditMessageServiceDao
    *
    * @return
    */
-  public int getMaximumAuditIdInAuditTable() throws SQLException
+  public int getMaximumAuditIdInAuditTable() throws Exception
   {
-    Connection connection = AuditDBConnectionImpl.getInstance().getConnection();
+    Connection connection = DBConnections.Factory.getInstance().getConnection(DatabaseNames.AUDIT);
     if (connection == null)
     {
+      logger.error("database connection is not available for " + DatabaseNames.AUDIT);
       throw new SQLException("database connection is not available");
     }
 

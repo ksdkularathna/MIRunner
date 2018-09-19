@@ -9,6 +9,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Class is used as a Runner for all the MI modules
  * @author SampathD
  * @created 23/08/2018
  */

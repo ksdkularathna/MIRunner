@@ -1,8 +1,6 @@
-D:\PFM\Temp\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\service\dao\AuditMessageServiceDao.java
-D:\PFM\Temp\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\service\dao\DBConnection.java
-D:\PFM\Temp\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\service\AuditRecordService.java
-D:\PFM\Temp\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\servlets\InitMI.java
-D:\PFM\Temp\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\servlets\shutdownMI.java
-D:\PFM\Temp\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\MIRunner.java
-D:\PFM\Temp\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\service\dao\AuditDBConnectionImpl.java
-D:\PFM\Temp\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\MIRunnerProperties.java
+E:\UK\sources_external\PFM\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\service\AuditRecordService.java
+E:\UK\sources_external\PFM\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\MIRunner.java
+E:\UK\sources_external\PFM\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\MIRunnerProperties.java
+E:\UK\sources_external\PFM\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\servlets\InitMI.java
+E:\UK\sources_external\PFM\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\servlets\shutdownMI.java
+E:\UK\sources_external\PFM\MIRunner\src\main\java\cambio\pfm\mi\MIRunner\service\dao\AuditMessageServiceDao.java

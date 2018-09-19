@@ -3,6 +3,7 @@ package cambio.pfm.mi.MIRunner.service;
 import cambio.pfm.mi.MIRunner.service.dao.AuditMessageServiceDao;
 import cambio.pfm.mi.core.data.AuditData;
 import cambio.pfm.service.audit.AuditService;
+import org.apache.log4j.Logger;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -22,6 +23,8 @@ public class AuditRecordService
   private AuditMessageServiceDao dao;
 
   private int lastAuditIdProcessed = 0;
+
+  private final static Logger logger = Logger.getLogger(AuditRecordService.class);
 
   private AuditRecordService()
   {
@@ -45,20 +48,21 @@ public class AuditRecordService
 
       if (lastAuditIdAvailable > lastAuditIdProcessed)
       {
-        System.out.println("Audit extract started on " + new Date());
+        logger.info("Audit extract started on " + new Date());
         List<AuditData> newAuditMessages = dao.getNewAuditData(lastAuditIdProcessed);
         for (AuditData auditData : newAuditMessages)
         {
           AuditService.getInstance().auditRecord(auditData);
           lastAuditIdProcessed = auditData.getAuditId();
         }
-        System.out.println("Audit extract ended on " + new Date());
+        logger.info("Audit extract ended on " + new Date());
       }
     }
     catch (SQLException e)
     {
       e.printStackTrace();
-      throw new Exception("Audit message handling failed");
+      logger.error("Audit data processing failed");
+      throw new Exception("Audit data processing failed");
     }
   }
 }

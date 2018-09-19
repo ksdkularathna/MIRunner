@@ -9,5 +9,8 @@
         <module name="MIRunner" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MIRunner" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
